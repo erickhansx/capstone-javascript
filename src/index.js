@@ -1,4 +1,11 @@
 import './components/global/global.scss';
+import './components/home/home.js';
+import {
+  retrieveCharacters,
+  displayCharacters,
+} from './components/home/home.js';
+
+displayCharacters();
 
 if (process.env.NODE_ENV === 'production') {
   console.log('Production Mode');
