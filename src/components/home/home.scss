@@ -40,12 +40,14 @@ body {
   color: azure;
   display: flex;
   justify-content: center;
+  font-family: 'Roboto Condensed';
 
   &__container {
     display: flex;
     justify-content: center;
     align-items: center;
     gap: 2rem;
+    font-size: 1.5rem;
   }
 }
 
@@ -57,10 +59,17 @@ body {
 
 .characterDiv {
   color: azure;
+  font-size: 2rem;
   max-width: 33%;
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+
+.charactersName {
+  font-family: Raleway;
+  font-size: 3rem;
+  color: #8fb996;
 }
 
 .characterImg {
@@ -68,6 +77,10 @@ body {
   max-height: 50%;
   border-radius: 25px;
   border: 2px solid #fff;
+  transition: transform 0.6s;
+  &:hover {
+    transform: scale(1.2);
+  }
 }
 
 .charactersOccupation {
@@ -78,4 +91,15 @@ body {
   display: flex;
   flex-direction: column;
   margin-bottom: 2rem;
+  font-family: 'Roboto Condensed';
+}
+
+.btn {
+  background-color: #415d43;
+  font-size: 2rem;
+  color: #fff;
+  padding: 0.5rem 2rem;
+  border-color: #8fb996;
+  margin-bottom: 0.5rem;
+  font-family: 'Roboto Condensed';
 }

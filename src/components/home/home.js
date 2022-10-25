@@ -35,15 +35,17 @@ const displayCharacters = async () => {
     characterText.classList.add('characterText');
     characterDiv.appendChild(characterImg);
     characterDiv.appendChild(characterText);
-    charactersName.innerText = character.name;
+    charactersName.innerText = `Name: ${character.name}`;
     characterText.appendChild(charactersName);
-    characterBday.innerText = character.birthday;
+    characterBday.innerText = `Date of birth: ${character.birthday}`;
     characterText.appendChild(characterBday);
     characterText.appendChild(charactersOccupation);
     const commentsBtn = document.createElement('button');
     commentsBtn.innerText = 'Comments';
     commentsBtn.classList.add('commentsBtn');
+    commentsBtn.classList.add('btn');
     const reservationsBtn = document.createElement('button');
+    reservationsBtn.classList.add('btn');
     reservationsBtn.innerText = 'Reservations';
     reservationsBtn.classList.add('reservationsBtn');
     characterDiv.appendChild(commentsBtn);
@@ -52,7 +54,7 @@ const displayCharacters = async () => {
     character.occupation.forEach((occupation) => {
       const occupationList = document.createElement('li');
       occupationList.classList.add('occupationList');
-      occupationList.innerText = occupation;
+      occupationList.innerText = `Occupation: ${occupation}`;
       charactersOccupation.appendChild(occupationList);
     });
   });
