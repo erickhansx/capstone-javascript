@@ -1,9 +1,5 @@
 import './components/global/global.scss';
-import './components/home/home.js';
-import {
-  retrieveCharacters,
-  displayCharacters,
-} from './components/home/home.js';
+import { displayCharacters } from './components/home/home.js';
 
 displayCharacters();
 

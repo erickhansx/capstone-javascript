@@ -1,5 +1,4 @@
 import './home.scss';
-export { retrieveCharacters, displayCharacters };
 
 const homepage = document.querySelector('.homepage');
 const path = 'https://www.breakingbadapi.com/api/characters?limit=12&offset=0';
@@ -12,7 +11,6 @@ const retrieveCharacters = async () => {
 };
 
 const displayCharacters = async () => {
-  const body = document.body;
   const charactersInfo = await retrieveCharacters();
 
   console.log(typeof charactersInfo);
@@ -59,3 +57,5 @@ const displayCharacters = async () => {
     });
   });
 };
+
+export { retrieveCharacters, displayCharacters };
