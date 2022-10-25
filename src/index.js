@@ -1,4 +1,5 @@
 import './components/global/global.scss';
+import './components/stage-comments/style.css'
 
 if (process.env.NODE_ENV === 'production') {
   console.log('Production Mode');

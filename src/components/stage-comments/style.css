@@ -1,0 +1,76 @@
+.general__container {
+  border: 1px solid black;
+  width: 40%;
+  height: 95%;
+  text-align: center;
+  margin-left: 25%;
+  box-shadow: 5px 5px 5px 2px;
+}
+
+.photo__breaking {
+  width: 55%;
+  height: 40%;
+  margin-top: 30px;
+}
+
+.name__space {
+  font-size: 30px;
+  margin-top: 15px;
+}
+
+.main__content {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  margin-left: 50px;
+  margin-right: 50px;
+  font-size: 15px;
+}
+
+.name__comment {
+  margin-top: 30px;
+  font-size: 23px;
+}
+
+.five {
+  font-size: 15px;
+}
+
+.six {
+  font-size: 15px;
+}
+
+.content__3 {
+  margin-top: 15px;
+  margin-right: 130px;
+}
+
+.name__add {
+  font-size: 19px;
+  margin-top: 25px;
+}
+
+.input__main {
+  display: flex;
+  flex-direction: column;
+  margin-left: 26%;
+}
+
+.input__text {
+  width: 30%;
+  margin-top: 10px;
+}
+
+.input__mail {
+  width: 40%;
+  margin-top: 10px;
+}
+
+.button__comment {
+  width: 30%;
+  margin-top: 10px;
+}
+
+.close {
+  margin-right: 10px;
+}
