@@ -27,7 +27,6 @@ const displayCharacters = async () => {
     const characterImg = document.createElement('img');
     characterImg.classList.add('characterImg');
     characterImg.src = character.img;
-    console.log(characterImg);
     homepage.appendChild(characterDiv);
     const characterText = document.createElement('div');
     characterText.classList.add('characterText');
@@ -56,6 +55,7 @@ const displayCharacters = async () => {
       charactersOccupation.appendChild(occupationList);
     });
   });
+  const btnComments = document.querySelector('.commentsBtn');
 };
 
 export { retrieveCharacters, displayCharacters };
