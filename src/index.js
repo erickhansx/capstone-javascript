@@ -1,7 +1,5 @@
 import './components/global/global.scss';
 import './components/home/home.scss';
-const appId = 'wHDqf2FyYMmzmK7MMxf9';
-const idPath = `https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/${appId}/likes/`;
 // import {
 //   // displayCharacters,
 //   retrieveLikes,
@@ -9,9 +7,12 @@ const idPath = `https://us-central1-involvement-api.cloudfunctions.net/capstoneA
 //   idPath,
 //   passLike,
 // } from './components/home/home.js';
-import { addCharApi } from './components/home/addCharApi.js';
-import { displayCharacters } from './components/home/displayCharacters';
-import { retrieveCharacters } from './components/home/retrieveCharacters';
+import addCharApi from './components/home/addCharApi.js';
+import displayCharacters from './components/home/displayCharacters';
+// import retrieveCharacters from './components/home/retrieveCharacters';
+
+const appId = 'wHDqf2FyYMmzmK7MMxf9';
+const idPath = `https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/${appId}/likes/`;
 
 displayCharacters();
 addCharApi();

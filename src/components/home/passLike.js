@@ -1,7 +1,7 @@
 const passLike = async () => {
   const charactersIds = document.querySelectorAll('.characterDiv');
   charactersIds.forEach((char) => {
-    const id = char.id;
+    const { id } = char;
     console.log(id);
     const update = {
       item_id: char.id,
@@ -21,3 +21,5 @@ const passLike = async () => {
     // }
   });
 };
+
+export default passLike;

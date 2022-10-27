@@ -1,9 +1,10 @@
-import { retrieveCharacters } from './retrieveCharacters';
+import retrieveCharacters from './retrieveCharacters.js';
+
 const homepage = document.querySelector('.homepage');
-const path = 'https://www.breakingbadapi.com/api/characters?limit=12&offset=0';
-const appId = 'wHDqf2FyYMmzmK7MMxf9';
-const idPath = `https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/${appId}/likes/`;
-export const displayCharacters = async () => {
+// const path = 'https://www.breakingbadapi.com/api/characters?limit=12&offset=0';
+// const appId = 'wHDqf2FyYMmzmK7MMxf9';
+// const idPath = `https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/${appId}/likes/`;
+const displayCharacters = async () => {
   const charactersInfo = await retrieveCharacters();
 
   charactersInfo.forEach((character) => {
@@ -50,3 +51,5 @@ export const displayCharacters = async () => {
 
   btnComments.addEventListener('click', () => console.log('hola'));
 };
+
+export default displayCharacters;
