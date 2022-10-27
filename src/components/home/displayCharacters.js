@@ -46,14 +46,14 @@ const displayCharacters = async () => {
       occupationList.innerText = `Occupation: ${occupation}`;
       charactersOccupation.appendChild(occupationList);
     });
-  });
-  
+  }); 
+  const close = document.querySelector('.close')
+  const container = document.querySelector('.general__container')
   const btnComments = document.querySelectorAll('.commentsBtn');
   btnComments.forEach((btn) => {
-    btn.addEventListener('click', () => console.log('hola'));
+    btn.addEventListener('click', () => container.style.display = 'block');
   });
-
-  
+  close.addEventListener('click', () => container.style.display = 'none');
 };
 
 
