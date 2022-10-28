@@ -1,10 +1,10 @@
-// import retrieveCharacters from './retrieveCharacters.js';
+import retrieveCharacters from './retrieveCharacters.js';
 
-const appId = 'wHDqf2FyYMmzmK7MMxf9';
+const appId = 'TpmMqPZSaYcfyNoZ0kVp';
 const idPath = `https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/${appId}/likes/`;
 
 const addCharApi = async () => {
-  // const charactersInfo = await retrieveCharacters();
+  const charactersInfo = await retrieveCharacters();
   const charactersIds = document.querySelectorAll('.characterDiv');
   console.log(charactersIds);
   try {

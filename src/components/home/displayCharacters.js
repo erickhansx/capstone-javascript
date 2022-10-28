@@ -1,3 +1,4 @@
+import displayLikes from './displayLikes.js';
 import retrieveCharacters from './retrieveCharacters.js';
 
 const homepage = document.querySelector('.homepage');
@@ -47,9 +48,8 @@ const displayCharacters = async () => {
       charactersOccupation.appendChild(occupationList);
     });
   });
-  const btnComments = document.querySelector('.commentsBtn');
 
-  btnComments.addEventListener('click', () => console.log('hola'));
+  displayLikes();
 };
 
 export default displayCharacters;
