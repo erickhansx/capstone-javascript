@@ -1,4 +1,5 @@
-import ReservationClass from './ReservationClass.js';
+import ReservationClass from './reservationClass.js';
+import FetchRequestClass from './microverseAPI.js';
 
 export default class AddReservation {
     static getData = async ({ url }) => {
@@ -44,7 +45,7 @@ export default class AddReservation {
       }
     }
 
-    // static appID = 'ed0LORUs5gJKQQ4QLOxZ'
+  
 
     // static endPointMap = {
     //   mainurl: 'https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/',

@@ -1,5 +1,5 @@
-import AddReservation from './AddReservation.js';
-import ReservationClass from './ReservationClass.js';
+import AddReservation from './addReservation.js';
+import ReservationClass from './reservationClass.js';
 
 export default class EventListerners {
     static buttonSubmit = () => {
@@ -46,13 +46,12 @@ static windowLoad = () => {
     }
   });
 }
-
-}
 static reserveBtn = () => {
-  const mainBody = document.querySelector('.character');
+  const mainBody = document.querySelector('.characterDiv');
 
   mainBody.addEventListener('click', (e) => {
     const tar = e.target;
+    const characterImg = document.querySelector('characterImg')
     const parent = e.target.parentElement.parentElement.parentElement;
     const src = parent.children[0].getAttribute('src');
     const pickName = parent.children[1].children[0].textContent;
@@ -62,7 +61,7 @@ static reserveBtn = () => {
     const reservationBody = document.querySelector('.section-reservations');
     if (!tar.classList.contains('reservationsBtn')) return null;
 
-    appendIt.innerHTML = imageIt;
+    appendIt.innerHTML = characterImg;
     underSpace.innerHTML = underSpaceContent;
     reservationBody.classList.add('active');
   });
@@ -77,4 +76,5 @@ static closeBtn = () => {
 
     mainBody.classList.remove('active');
   });
+}
 }

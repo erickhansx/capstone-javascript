@@ -1,5 +1,6 @@
 import './home.scss';
-
+import EventListerners from '../../modules/reservationEventListener.js';
+import AddReservation from '../../modules/addReservation.js';
 const homepage = document.querySelector('.homepage');
 const path = 'https://www.breakingbadapi.com/api/characters?limit=12&offset=0';
 
@@ -56,6 +57,10 @@ const displayCharacters = async () => {
       charactersOccupation.appendChild(occupationList);
     });
   });
+EventListerners.reserveBtn();
+EventListerners.closeBtn();
+AddReservation.getDataToUse();
+EventListerners.windowLoad()
 };
 
 export { retrieveCharacters, displayCharacters };
