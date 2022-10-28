@@ -1,22 +1,11 @@
 import './components/global/global.scss';
 import './components/home/home.scss';
-// import {
-//   // displayCharacters,
-//   retrieveLikes,
-//   appId,
-//   idPath,
-//   passLike,
-// } from './components/home/home.js';
-import addCharApi from './components/home/addCharApi.js';
 import displayCharacters from './components/home/displayCharacters';
 import displayLikes from './components/home/displayLikes';
-// import retrieveCharacters from './components/home/retrieveCharacters';
-
+import passLike from './components/home/passLike';
 const appId = 'TpmMqPZSaYcfyNoZ0kVp';
 const idPath = `https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/${appId}/likes/`;
-
 displayCharacters();
-// displayLikes();
 
 // fetch(idPath)
 //   .then((data) => data.json())

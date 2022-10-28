@@ -9,7 +9,9 @@ const displayLikes = async () => {
   characterDiv.forEach((character) => {
     const likeDiv = document.createElement('div');
     likeDiv.classList.add(`likeDiv-${character.id}`);
-    const icon = document.createElement('span');
+    likeDiv.classList.add('likeDiv');
+    const icon = document.createElement('a');
+    icon.classList.add('likesBtn');
     icon.innerHTML = `<i class="fa-solid fa-flask"></i>`;
     likeDiv.appendChild(icon);
     character.appendChild(likeDiv);
@@ -20,7 +22,7 @@ const displayLikes = async () => {
       const likeDiv = document.querySelector(`.likeDiv-${character.id}`);
       if (item.item_id === character.id) {
         console.log(item.item_id, character.id);
-        likeDiv.innerHTML = `<i class="fa-solid fa-flask"></i><span>Likes: ${item.likes}</span>`;
+        likeDiv.innerHTML = `<a class="likesBtn"><i class="fa-solid fa-flask"></i><span>${item.likes}</span></a>`;
       }
     });
   });
