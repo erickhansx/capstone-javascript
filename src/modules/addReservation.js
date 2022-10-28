@@ -44,13 +44,6 @@ export default class AddReservation {
       }
     }
 
-    // static appID = 'ed0LORUs5gJKQQ4QLOxZ'
-
-    // static endPointMap = {
-    //   mainurl: 'https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/',
-    //   postReservationURL: `${AddReservation.appID}/reservations/`,
-    // }
-
     static createDataToPostToAPI = async (username, dateStart, dateEnd, itemId) => {
 
         try {
