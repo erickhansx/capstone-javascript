@@ -3,20 +3,22 @@
 }
 
 .general__container {
-  border: 1px solid rgb(247, 246, 246);
-  width: 40%;
+  border: 1px solid rgb(43, 42, 42);
+  background-color: antiquewhite;
+  width: 35%;
   height: 95%;
   text-align: center;
   margin-left: 25%;
   box-shadow: 5px 5px 5px 2px;
   display: none;
-  top: 0;
+  top: 20px;
   position: fixed;
+  border-radius: 8px;
 }
 
 .photo__breaking {
   width: 55%;
-  height: 40%;
+  height: 30%;
   margin-top: 30px;
 }
 
@@ -64,22 +66,28 @@
 }
 
 .input__text {
-  width: 30%;
+  width: 35%;
   margin-top: 10px;
+  border-radius: 8px;
 }
 
 .input__mail {
-  width: 40%;
+  width: 45%;
   margin-top: 10px;
+  border-radius: 8px;
 }
 
 .button__comment {
-  width: 30%;
+  width: 35%;
   margin-top: 10px;
 }
 
 .close {
-  margin-right: 10px;
+  margin-left: 55%;
+  margin-top: 40px;
+  width: 30px;
+  height: 30px;
+  border-radius: 3px;
 }
 
 

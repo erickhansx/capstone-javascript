@@ -50,11 +50,42 @@ const displayCharacters = async () => {
   const close = document.querySelector('.close')
   const container = document.querySelector('.general__container')
   const btnComments = document.querySelectorAll('.commentsBtn');
+  const nameSpace = document.querySelector('.name__space')
+  const photo = document.querySelector('.photo__breaking')
+  const contOne = document.querySelector('.one')
+  const contTwo = document.querySelector('.two')
+  const contThree = document.querySelector('.three')
+  const contFour = document.querySelector('.four')
+  const addComment = document.querySelector('.name__add')
+
   btnComments.forEach((btn) => {
-    btn.addEventListener('click', () => container.style.display = 'block');
+    btn.addEventListener('click', () => {
+      console.log(typeof btn.parentElement.id)
+      container.style.display = 'block';
+      fetch('https://www.breakingbadapi.com/api/characters?limit=12&offset=0')
+    .then(res => res.json())
+    .then(data => {
+      data.forEach(data  => {
+        if(JSON.stringify(data.char_id)=== btn.parentElement.id) {
+          nameSpace.innerText = data.name
+          console.log(nameSpace)
+          photo.src = data.img
+          contOne.innerText = data.nickname
+          contTwo.innerText = data.status
+          contThree.innerText = data.portrayed
+          contFour.innerText = data.birthday
+          addComment.innerText = 'Add a comment'
+        }
+      })
+    })
+    .catch(e => console.log(new Error(e)))
+    });
   });
+
+
   close.addEventListener('click', () => container.style.display = 'none');
 };
+
 
 
 export default displayCharacters;
