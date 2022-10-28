@@ -57,6 +57,9 @@ const displayCharacters = async () => {
   const contThree = document.querySelector('.three')
   const contFour = document.querySelector('.four')
   const addComment = document.querySelector('.name__add')
+  const input1 = document.querySelector('.input__text')
+  const input2 = document.querySelector('.input__mail')
+
 
   btnComments.forEach((btn) => {
     btn.addEventListener('click', () => {
@@ -75,19 +78,39 @@ const displayCharacters = async () => {
           contThree.innerText = data.portrayed
           contFour.innerText = data.birthday
           addComment.innerText = 'Add a comment'
+          const insideBtn = document.createElement('button');
+          insideBtn.innerText = 'Comments';
+          const inputMain = document.querySelector('.input__main');
+          inputMain.appendChild(insideBtn)
+          insideBtn.addEventListener('click', () => {
+            console.log(input1.value, input2.value)
+            
+            const newComment = document.createElement('div')
+            newComment.classList.add('newComment')
+            const general = document.querySelector('.general__container')
+            const newParagraph = document.createElement('p')
+            const date = new Date()
+            newParagraph.innerText = `${date} ${input1.value}: ${input2.value}`
+            newComment.appendChild(newParagraph)
+            general.insertBefore(newComment, addComment)
+            input1.value = ''
+            input2.value = ''
+
+          })
         }
       })
     })
+    
     .catch(e => console.log(new Error(e)))
     });
   });
 
-
+  
+  
+  
   close.addEventListener('click', () => container.style.display = 'none');
 };
 
 
-
 export default displayCharacters;
-
 

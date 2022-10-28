@@ -18,6 +18,7 @@ const idPath = `https://us-central1-involvement-api.cloudfunctions.net/capstoneA
 displayCharacters();
 addCharApi();
 
+
 fetch(idPath)
   .then((data) => data.json())
   .then((data) => console.log(data));
