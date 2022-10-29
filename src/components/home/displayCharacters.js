@@ -63,11 +63,13 @@ const displayCharacters = async () => {
   const input1 = document.querySelector('.input__text');
   const input2 = document.querySelector('.input__mail');
   const insideBtn = document.createElement('button');
+  insideBtn.classList.add('inside__button')
   const date = new Date();
   const newComment = document.createElement('div');
   newComment.classList.add('newComment');
   const general = document.querySelector('.general__container');
   const newParagraph = document.createElement('p');
+  newParagraph.classList.add('text__paragraph')
   newComment.appendChild(newParagraph);
   general.insertBefore(newComment, addComment);
 
@@ -114,7 +116,7 @@ const displayCharacters = async () => {
               //contenedor
               const comentNEW = document.createElement('p');
               comentNEW.innerText =
-                json[i].username + json[i].comment + json[i].creation_date;
+                json[i].username + ' ' + json[i].comment + ' ' + json[i].creation_date;
               newComment.appendChild(comentNEW);
             }
             //console.log(json.length +"********************************************")
