@@ -21,21 +21,10 @@ const displayLikes = async () => {
       const likeDiv = document.querySelector(`.likeDiv-${character.id}`);
       if (item.item_id === character.id) {
         console.log(item.item_id, character.id);
-        likeDiv.innerHTML = `<a class="likesBtn"><i class="fa-solid fa-flask"></i><span>${item.likes}</span></a>`;
+        likeDiv.innerHTML = `<a><i class="fa-solid fa-flask"></i><span id="likes-number">${item.likes}</span></a>`;
       }
     });
   });
 };
-
-// if(fetchedLikes.char_id === )
-// const update = {
-//   item_id: charactersIds.id,
-// };
-// const options = {
-//   method: 'POST',
-//   headers: {
-//     'Content-Type': 'application/json',
-// console.log(fetchedLikes.text());
-// return fetchedLikes;
 
 export default displayLikes;
