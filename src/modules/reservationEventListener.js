@@ -55,14 +55,12 @@ static reserveBtn = () => {
     const parent = e.target.parentElement.parentElement.parentElement;
     const src = parent.children[0].getAttribute('src');
     const pickName = parent.children[1].children[0].textContent;
-    const underSpace = document.querySelector('.under-space');
     const appendIt = document.querySelector('.image-body');
     const starNumber = parent.children[1].children[1].children[1].textContent;
     const reservationBody = document.querySelector('.section-reservations');
     if (!tar.classList.contains('reservationsBtn')) return null;
 
     appendIt.innerHTML = characterImg;
-    underSpace.innerHTML = underSpaceContent;
     reservationBody.classList.add('active');
   });
 }
