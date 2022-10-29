@@ -1,3 +1,4 @@
+import cardsNumber from './cardCounter.js';
 import displayLikes from './displayLikes.js';
 import passLike from './passLike.js';
 import retrieveCharacters from './retrieveCharacters.js';
@@ -46,7 +47,7 @@ const displayCharacters = async () => {
       charactersOccupation.appendChild(occupationList);
     });
   });
-
+  cardsNumber('characterDiv');
   await displayLikes();
   passLike();
 };
