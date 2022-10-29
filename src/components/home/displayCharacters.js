@@ -2,7 +2,7 @@ import displayLikes from './displayLikes.js';
 import passLike from './passLike.js';
 import retrieveCharacters from './retrieveCharacters.js';
 import characterCounter from './characters-counts.js';
-
+import commentsCounter from './commentsCounter.js';
 
 const homepage = document.querySelector('.homepage');
 // const path = 'https://www.breakingbadapi.com/api/characters?limit=12&offset=0';
@@ -53,7 +53,6 @@ const displayCharacters = async () => {
     });
     const counterChar = document.getElementById('CharacterCounter');
     characterCounter(counterChar, charactersInfo.length);
-
   });
 
   //Comments Section
@@ -70,13 +69,13 @@ const displayCharacters = async () => {
   const input1 = document.querySelector('.input__text');
   const input2 = document.querySelector('.input__mail');
   const insideBtn = document.createElement('button');
-  insideBtn.classList.add('inside__button')
+  insideBtn.classList.add('inside__button');
   const date = new Date();
   const newComment = document.createElement('div');
   newComment.classList.add('newComment');
   const general = document.querySelector('.general__container');
   const newParagraph = document.createElement('p');
-  newParagraph.classList.add('text__paragraph')
+  newParagraph.classList.add('text__paragraph');
   newComment.appendChild(newParagraph);
   general.insertBefore(newComment, addComment);
 
@@ -112,7 +111,9 @@ const displayCharacters = async () => {
       inputMain.appendChild(insideBtn);
 
       // GET COMMENTS
-
+      const title = document.createElement('p');
+      title.innerHTML = 'Comments XXXX';
+      newComment.appendChild(title);
       const retrieveComment = async () => {
         await fetch(pathGet)
           .then((response) => response.json())
@@ -121,10 +122,16 @@ const displayCharacters = async () => {
               console.log('papitas');
               console.log(json[i]);
               //contenedor
+
               const comentNEW = document.createElement('p');
               comentNEW.innerText =
-                json[i].username + ' ' + json[i].comment + ' ' + json[i].creation_date;
+                json[i].username +
+                ' ' +
+                json[i].comment +
+                ' ' +
+                json[i].creation_date;
               newComment.appendChild(comentNEW);
+              commentsCounter(title, json.length);
             }
             //console.log(json.length +"********************************************")
           });
@@ -165,7 +172,6 @@ const displayCharacters = async () => {
   await displayLikes();
   passLike();
 
-
   //section reservations
   const closeRes = document.querySelector('.close__but');
   const containerRes = document.querySelector('.main__container');
@@ -181,13 +187,13 @@ const displayCharacters = async () => {
   const input2Res = document.querySelector('.main__mail');
   const input3Res = document.querySelector('.end__name');
   const insideBtnRes = document.createElement('button');
-  insideBtnRes.classList.add('inside__button_reserv')
+  insideBtnRes.classList.add('inside__button_reserv');
 
   const newCommentReser = document.createElement('div');
   newCommentReser.classList.add('newCommentReser');
   const generalRes = document.querySelector('.main__container');
   const newParagraphReser = document.createElement('p');
-  newParagraphReser.classList.add('text__paragraph_reser')
+  newParagraphReser.classList.add('text__paragraph_reser');
   newCommentReser.appendChild(newParagraphReser);
   generalRes.insertBefore(newCommentReser, addCommentRes);
 
@@ -197,7 +203,6 @@ const displayCharacters = async () => {
       const idDinamic = btn.parentElement.id; // id dinamico get
       const idPath = `https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/wHDqf2FyYMmzmK7MMxf9/reservations/`; // id dinamico post
       const pathGet = `https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/${appId}/comments/?item_id=${idDinamic}`;
-
 
       generalRes.style.display = 'block';
 
@@ -216,44 +221,20 @@ const displayCharacters = async () => {
             }
           });
         });
-        // Post comment Button
+      // Post comment Button
       addCommentRes.innerText = 'Add a Reservation';
       const insideBtnRes = document.createElement('button');
-      insideBtnRes.classList.add('but_inside_res')
+      insideBtnRes.classList.add('but_inside_res');
       insideBtnRes.innerText = 'Reservations';
       inputMainRes.appendChild(insideBtnRes);
-    })
-  })
+    });
+  });
 
-  //  // GET COMMENTS
-  //  const pathGet = `https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/${appId}/comments/?item_id=${idDinamic}`;
-  //  const idDinamic = btn.parentElement.id;
-  //  const retrieveComment = async () => {
-  //   await fetch(pathGet)
-  //     .then((response) => response.json())
-  //     .then((json) => {
-  //       for (let i = 0; i < json.length; i += 1) {
-  //         console.log('papitas');
-  //         console.log(json[i]);
-  //         //contenedor
-  //         const comentNEWRes = document.createElement('p');
-  //         comentNEWRes.innerText =
-  //           json[i].username + ' ' + json[i].comment + ' ' + json[i].creation_date;
-  //         newCommentReser.appendChild(comentNEWRes);
-  //       }
-  //       //console.log(json.length +"********************************************")
-  //     });
-      
-  // };
 
-  // retrieveComment();
 
   closeRes.addEventListener('click', () => {
     location.reload();
   });
- 
- 
 };
-
 
 export default displayCharacters;

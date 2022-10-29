@@ -1,7 +1,4 @@
-
-
 const characterCounter = (totalCharText, count) => {
-    totalCharText.innerHTML = `Characters (${count})`;
-  };
-  export default characterCounter;
-  
+  totalCharText.innerHTML = `Characters (${count})`;
+};
+export default characterCounter;

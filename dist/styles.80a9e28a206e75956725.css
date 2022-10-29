@@ -1,0 +1,199 @@
+body{box-sizing:border-box}*,* ::after,* ::before{margin:0;padding:0;box-sizing:inherit}html{font-size:62.5%}li{list-style:none}a{text-decoration:inherit;color:inherit}a:visited{text-decoration:inherit;color:inherit}
+.section-comments {
+  position: relative;
+}
+
+.general__container {
+  border: 1px solid rgb(43, 42, 42);
+  background-color: antiquewhite;
+  width: 65%;
+  height: 95%;
+  text-align: center;
+  margin-left: 16%;
+  box-shadow: 5px 5px 5px 2px;
+  display: none;
+  top: 20px;
+  position: fixed;
+  border-radius: 8px;
+}
+
+.photo__breaking {
+  width: 25%;
+  height: 30%;
+  margin-top: 10px;
+}
+
+.name__space {
+  font-size: 30px;
+  margin-top: 15px;
+}
+
+.main__content {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  margin-left: 50px;
+  margin-right: 50px;
+  font-size: 15px;
+}
+
+.name__comment {
+  margin-top: 30px;
+  font-size: 23px;
+}
+
+.five {
+  font-size: 15px;
+}
+
+.six {
+  font-size: 15px;
+}
+
+.content__3 {
+  margin-top: 15px;
+  margin-right: 130px;
+}
+
+.name__add {
+  font-size: 19px;
+  margin-top: 17px;
+}
+
+.input__main {
+  display: flex;
+  flex-direction: column;
+  margin-left: 38%;
+}
+
+.input__text {
+  width: 35%;
+  margin-top: 10px;
+  border-radius: 8px;
+}
+
+.input__mail {
+  width: 45%;
+  margin-top: 10px;
+  border-radius: 8px;
+}
+
+.button__comment {
+  width: 35%;
+  margin-top: 10px;
+}
+
+.close {
+  margin-left: 85%;
+  margin-top: 40px;
+  width: 30px;
+  height: 30px;
+  border-radius: 3px;
+}
+
+.text__paragraph {
+  font-size: 15px;
+}
+
+.newComment {
+  overflow-y: scroll;
+  max-height: 100px;
+}
+
+.input__main button {
+  width: 35%;
+  margin-top: 10px;
+}
+
+.section-reservations {
+  position: relative;
+}
+
+.main__container {
+  border: 1px solid rgb(43, 42, 42);
+  background-color: antiquewhite;
+  width: 35%;
+  height: 95%;
+  text-align: center;
+  margin-left: 25%;
+  box-shadow: 5px 5px 5px 2px;
+  top: 20px;
+  position: fixed;
+  border-radius: 8px;
+  display: none;
+}
+
+.photo__reserv {
+  width: 55%;
+  height: 30%;
+  margin-top: 30px;
+}
+
+.name__space__reserv {
+  font-size: 30px;
+  margin-top: 15px;
+}
+
+.main__content_reserv {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  margin-left: 50px;
+  margin-right: 50px;
+  font-size: 15px;
+}
+
+.name__reserv {
+  margin-top: 30px;
+  font-size: 23px;
+}
+
+.content__three {
+  margin-top: 15px;
+  margin-right: 130px;
+}
+
+.name__add_reserv {
+  font-size: 19px;
+  margin-top: 25px;
+}
+
+.input__main_reserv {
+  display: flex;
+  flex-direction: column;
+  margin-left: 26%;
+}
+
+.text__main {
+  width: 35%;
+  margin-top: 10px;
+  border-radius: 8px;
+}
+
+.main__mail {
+  width: 45%;
+  margin-top: 10px;
+  border-radius: 8px;
+}
+
+.end__name {
+  width: 45%;
+  margin-top: 10px;
+  border-radius: 8px;
+}
+
+
+
+.close__but {
+  margin-left: 55%;
+  margin-top: 40px;
+  width: 30px;
+  height: 30px;
+  border-radius: 3px;
+}
+
+.but_inside_res {
+  width: 35%;
+  margin-top: 10px;
+}
+body{background-color:#000}.header__nav{display:flex;justify-content:center;gap:4rem;color:azure;font-size:2.5rem;font-family:"Raleway",sans-serif}.header__nav--img img{width:20rem;height:20rem;border-radius:1rem}.header__nav--menu{display:flex}.menu-list{display:flex;gap:2rem;justify-content:center;align-items:center}.menu-list li{background-color:#415d43;padding:1.5rem;border-radius:5px}.footer{color:azure;display:flex;justify-content:center;font-family:"Roboto Condensed",sans-serif}.footer__container{display:flex;justify-content:center;align-items:center;gap:2rem;font-size:1.5rem}.homepage{display:flex;flex-wrap:wrap;align-items:stretch}.characterDiv{color:azure;font-size:2rem;max-width:33%;display:flex;flex-direction:column;align-items:center}.charactersName{font-family:Raleway,sans-serif;font-size:3rem;color:#8fb996}.characterImg{max-width:90%;max-height:50%;border-radius:25px;border:2px solid #fff;transition:transform .6s}.characterImg:hover{border:4px solid #8fb996;transform:scale(1.2)}.charactersOccupation{color:azure}.characterText{display:flex;flex-direction:column;margin-bottom:2rem;font-family:"Roboto Condensed",sans-serif}.btn{background-color:#415d43;font-size:2rem;color:#fff;padding:.5rem 2rem;border-color:#8fb996;margin-bottom:.5rem;font-family:"Roboto Condensed",sans-serif;transition:transform .6s}.btn:hover{background-color:#8fb996;border-color:#415d43}.liked{color:#b8b98f}
