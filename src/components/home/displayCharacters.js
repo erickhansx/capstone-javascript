@@ -2,8 +2,8 @@ import retrieveCharacters from './retrieveCharacters.js';
 
 const homepage = document.querySelector('.homepage');
 // const path = 'https://www.breakingbadapi.com/api/characters?limit=12&offset=0';
-// const appId = 'wHDqf2FyYMmzmK7MMxf9';
-// const idPath = `https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/${appId}/likes/`;
+const appId = 'wHDqf2FyYMmzmK7MMxf9';
+const idPath = `https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/${appId}/comments/`;
 const displayCharacters = async () => {
   const charactersInfo = await retrieveCharacters();
 
@@ -46,71 +46,92 @@ const displayCharacters = async () => {
       occupationList.innerText = `Occupation: ${occupation}`;
       charactersOccupation.appendChild(occupationList);
     });
-  }); 
-  const close = document.querySelector('.close')
-  const container = document.querySelector('.general__container')
-  const btnComments = document.querySelectorAll('.commentsBtn');
-  const nameSpace = document.querySelector('.name__space')
-  const photo = document.querySelector('.photo__breaking')
-  const contOne = document.querySelector('.one')
-  const contTwo = document.querySelector('.two')
-  const contThree = document.querySelector('.three')
-  const contFour = document.querySelector('.four')
-  const addComment = document.querySelector('.name__add')
-  const input1 = document.querySelector('.input__text')
-  const input2 = document.querySelector('.input__mail')
+  });
 
+  //Comments Section
+  const close = document.querySelector('.close');
+  const container = document.querySelector('.general__container');
+  const btnComments = document.querySelectorAll('.commentsBtn');
+  const nameSpace = document.querySelector('.name__space');
+  const photo = document.querySelector('.photo__breaking');
+  const contOne = document.querySelector('.one');
+  const contTwo = document.querySelector('.two');
+  const contThree = document.querySelector('.three');
+  const contFour = document.querySelector('.four');
+  const addComment = document.querySelector('.name__add');
+  const input1 = document.querySelector('.input__text');
+  const input2 = document.querySelector('.input__mail');
+  const insideBtn = document.createElement('button');
+  const date = new Date();
 
   btnComments.forEach((btn) => {
     btn.addEventListener('click', () => {
-      console.log(typeof btn.parentElement.id)
+      console.log(typeof btn.parentElement.id);
       container.style.display = 'block';
       fetch('https://www.breakingbadapi.com/api/characters?limit=12&offset=0')
-    .then(res => res.json())
-    .then(data => {
-      data.forEach(data  => {
-        if(JSON.stringify(data.char_id)=== btn.parentElement.id) {
-          nameSpace.innerText = data.name
-          console.log(nameSpace)
-          photo.src = data.img
-          contOne.innerText = data.nickname
-          contTwo.innerText = data.status
-          contThree.innerText = data.portrayed
-          contFour.innerText = data.birthday
-          addComment.innerText = 'Add a comment'
-          const insideBtn = document.createElement('button');
-          insideBtn.innerText = 'Comments';
-          const inputMain = document.querySelector('.input__main');
-          inputMain.appendChild(insideBtn)
-          insideBtn.addEventListener('click', () => {
-            console.log(input1.value, input2.value)
-            
-            const newComment = document.createElement('div')
-            newComment.classList.add('newComment')
-            const general = document.querySelector('.general__container')
-            const newParagraph = document.createElement('p')
-            const date = new Date()
-            newParagraph.innerText = `${date} ${input1.value}: ${input2.value}`
-            newComment.appendChild(newParagraph)
-            general.insertBefore(newComment, addComment)
-            input1.value = ''
-            input2.value = ''
+        .then((res) => res.json())
+        .then((data) => {
+          data.forEach((data) => {
+            if (JSON.stringify(data.char_id) === btn.parentElement.id) {
+              nameSpace.innerText = data.name;
+              console.log(nameSpace);
+              photo.src = data.img;
+              contOne.innerText = data.nickname;
+              contTwo.innerText = data.status;
+              contThree.innerText = data.portrayed;
+              contFour.innerText = data.birthday;
+              addComment.innerText = 'Add a comment';
+              insideBtn.id = data.char_id;
+              insideBtn.innerText = 'Comments';
+              const inputMain = document.querySelector('.input__main');
+              inputMain.appendChild(insideBtn);
+              insideBtn.addEventListener('click', () => {
+                console.log(insideBtn.id);
 
-          })
-        }
-      })
-    })
-    
-    .catch(e => console.log(new Error(e)))
+                const newComment = document.createElement('div');
+                newComment.classList.add('newComment');
+                const general = document.querySelector('.general__container');
+                const newParagraph = document.createElement('p');
+                newParagraph.innerText = `${date} ${input1.value}: ${input2.value}`;
+                newComment.appendChild(newParagraph);
+                general.insertBefore(newComment, addComment);
+                const pathGet = `https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/${appId}/comments/?item_id=${insideBtn.id}`;
+
+                const updatePost = {
+                  item_id: insideBtn.id,
+                  username: input1.value,
+                  comment: input2.value,
+                };
+                const optionsPost = {
+                  method: 'POST',
+                  headers: {
+                    'Content-Type': 'application/json',
+                  },
+                  body: JSON.stringify(updatePost),
+                };
+                const postNewComment = async () =>
+                  await fetch(idPath, optionsPost);
+                postNewComment();
+
+                input1.value = '';
+                input2.value = '';
+                const retrieveComment = async () => {
+                  await fetch(pathGet).then((res) => res.json());
+                };
+                retrieveComment();
+                apiComments.forEach((comment) => {
+                  console.log(comment);
+                });
+              });
+            }
+          });
+        })
+
+        .catch((e) => console.log(new Error(e)));
     });
   });
 
-  
-  
-  
-  close.addEventListener('click', () => container.style.display = 'none');
+  close.addEventListener('click', () => (container.style.display = 'none'));
 };
 
-
 export default displayCharacters;
-
