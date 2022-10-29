@@ -1,0 +1,197 @@
+.section-comments {
+  position: relative;
+}
+
+.general__container {
+  border: 1px solid rgb(43, 42, 42);
+  background-color: antiquewhite;
+  width: 65%;
+  height: 95%;
+  text-align: center;
+  margin-left: 16%;
+  box-shadow: 5px 5px 5px 2px;
+  display: none;
+  top: 20px;
+  position: fixed;
+  border-radius: 8px;
+}
+
+.photo__breaking {
+  width: 25%;
+  height: 30%;
+  margin-top: 10px;
+}
+
+.name__space {
+  font-size: 30px;
+  margin-top: 15px;
+}
+
+.main__content {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  margin-left: 50px;
+  margin-right: 50px;
+  font-size: 15px;
+}
+
+.name__comment {
+  margin-top: 30px;
+  font-size: 23px;
+}
+
+.five {
+  font-size: 15px;
+}
+
+.six {
+  font-size: 15px;
+}
+
+.content__3 {
+  margin-top: 15px;
+  margin-right: 130px;
+}
+
+.name__add {
+  font-size: 19px;
+  margin-top: 17px;
+}
+
+.input__main {
+  display: flex;
+  flex-direction: column;
+  margin-left: 38%;
+}
+
+.input__text {
+  width: 35%;
+  margin-top: 10px;
+  border-radius: 8px;
+}
+
+.input__mail {
+  width: 45%;
+  margin-top: 10px;
+  border-radius: 8px;
+}
+
+.button__comment {
+  width: 35%;
+  margin-top: 10px;
+}
+
+.close {
+  margin-left: 85%;
+  margin-top: 40px;
+  width: 30px;
+  height: 30px;
+  border-radius: 3px;
+}
+
+.text__paragraph {
+  font-size: 15px;
+}
+
+.newComment {
+  overflow-y: scroll;
+  max-height: 100px;
+}
+
+.input__main button {
+  width: 35%;
+  margin-top: 10px;
+}
+
+.section-reservations {
+  position: relative;
+}
+
+.main__container {
+  border: 1px solid rgb(43, 42, 42);
+  background-color: antiquewhite;
+  width: 35%;
+  height: 95%;
+  text-align: center;
+  margin-left: 25%;
+  box-shadow: 5px 5px 5px 2px;
+  top: 20px;
+  position: fixed;
+  border-radius: 8px;
+  display: none;
+}
+
+.photo__reserv {
+  width: 55%;
+  height: 30%;
+  margin-top: 30px;
+}
+
+.name__space__reserv {
+  font-size: 30px;
+  margin-top: 15px;
+}
+
+.main__content_reserv {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  margin-left: 50px;
+  margin-right: 50px;
+  font-size: 15px;
+}
+
+.name__reserv {
+  margin-top: 30px;
+  font-size: 23px;
+}
+
+.content__three {
+  margin-top: 15px;
+  margin-right: 130px;
+}
+
+.name__add_reserv {
+  font-size: 19px;
+  margin-top: 25px;
+}
+
+.input__main_reserv {
+  display: flex;
+  flex-direction: column;
+  margin-left: 26%;
+}
+
+.text__main {
+  width: 35%;
+  margin-top: 10px;
+  border-radius: 8px;
+}
+
+.main__mail {
+  width: 45%;
+  margin-top: 10px;
+  border-radius: 8px;
+}
+
+.end__name {
+  width: 45%;
+  margin-top: 10px;
+  border-radius: 8px;
+}
+
+
+
+.close__but {
+  margin-left: 55%;
+  margin-top: 40px;
+  width: 30px;
+  height: 30px;
+  border-radius: 3px;
+}
+
+.but_inside_res {
+  width: 35%;
+  margin-top: 10px;
+}
