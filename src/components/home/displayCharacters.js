@@ -58,6 +58,7 @@ const displayCharacters = async () => {
   // Comments Section
   const close = document.querySelector('.close');
   const container = document.querySelector('.general__container');
+
   const btnComments = document.querySelectorAll('.commentsBtn');
   const nameSpace = document.querySelector('.name__space');
   const photo = document.querySelector('.photo__breaking');
