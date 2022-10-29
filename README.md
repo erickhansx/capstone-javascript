@@ -23,6 +23,9 @@ To get a local copy up and running follow these simple example steps.
 
 ### Setup
 
+Our video presentation of the project:
+[loom video](https://www.loom.com/share/eddcfe1a3c9a431d8d4dc96e2a9120d7)
+
 run the following commands in your terminal
 
 - git clone https://github.com/erickhansx/capstone-javascript.git
