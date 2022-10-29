@@ -5,10 +5,6 @@ const homepage = document.querySelector('.homepage');
 const appId = 'wHDqf2FyYMmzmK7MMxf9';
 const idPath = `https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/${appId}/comments/`;
 
-
-
-
-
 const displayCharacters = async () => {
   const charactersInfo = await retrieveCharacters();
 
@@ -76,106 +72,87 @@ const displayCharacters = async () => {
   general.insertBefore(newComment, addComment);
 
   btnComments.forEach((btn) => {
-    
     btn.addEventListener('click', () => {
       const inputMain = document.querySelector('.input__main');
-      const idDinamic = btn.parentElement.id;     // id dinamico get
+      const idDinamic = btn.parentElement.id; // id dinamico get
       const idPath = `https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/${appId}/comments/`; // id dinamico post
-      const pathGet = `https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/${appId}/comments/?item_id=${idDinamic}`
+      const pathGet = `https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/${appId}/comments/?item_id=${idDinamic}`;
 
+      container.style.display = 'block';
 
-
-  
-      container.style.display='block';
-
-
-      fetch('https://www.breakingbadapi.com/api/characters?limit=12&offset=0')  // GET BREAKING BAD DATA
-      .then((res) => res.json())
-      .then((data) => {
-        data.forEach((data) => {
-          if (JSON.stringify(data.char_id) === btn.parentElement.id) {
-            nameSpace.innerText = data.name;
-            console.log(nameSpace);
-            photo.src = data.img;
-            contOne.innerText = data.nickname;
-            contTwo.innerText = data.status;
-            contThree.innerText = data.portrayed;
-            contFour.innerText = data.birthday;
-     
-          };
+      fetch('https://www.breakingbadapi.com/api/characters?limit=12&offset=0') // GET BREAKING BAD DATA
+        .then((res) => res.json())
+        .then((data) => {
+          data.forEach((data) => {
+            if (JSON.stringify(data.char_id) === btn.parentElement.id) {
+              nameSpace.innerText = data.name;
+              console.log(nameSpace);
+              photo.src = data.img;
+              contOne.innerText = data.nickname;
+              contTwo.innerText = data.status;
+              contThree.innerText = data.portrayed;
+              contFour.innerText = data.birthday;
+            }
+          });
         });
-      });
 
-    // Post comment Button  
+      // Post comment Button
       addComment.innerText = 'Add a comment';
       const insideBtn = document.createElement('button');
       insideBtn.innerText = 'Comments';
       inputMain.appendChild(insideBtn);
 
+      // GET COMMENTS
 
-    // GET COMMENTS
+      const retrieveComment = async () => {
+        await fetch(pathGet)
+          .then((response) => response.json())
+          .then((json) => {
+            for (let i = 0; i < json.length; i += 1) {
+              console.log('papitas');
+              console.log(json[i]);
+              //contenedor
+              const comentNEW = document.createElement('p');
+              comentNEW.innerText =
+                json[i].username + json[i].comment + json[i].creation_date;
+              newComment.appendChild(comentNEW);
+            }
+            //console.log(json.length +"********************************************")
+          });
+      };
 
-    const retrieveComment = async () => {
-     
-      await fetch(pathGet)
-      .then((response) => response.json())
-      .then((json) =>{
-        
-        for(let i = 0; i<json.length;i+=1){
-          console.log("papitas");
-          console.log(json[i]);
-          //contenedor
-         const comentNEW =document.createElement('p');
-         comentNEW.innerText = json[i].username + json[i].comment + json[i].creation_date;                      
-         newComment.appendChild(comentNEW);
-    
+      retrieveComment();
+
+      // postNewComment();
+      insideBtn.addEventListener('click', () => {
+        while (newComment.hasChildNodes()) {
+          newComment.removeChild(newComment.firstChild);
         }
-        //console.log(json.length +"********************************************")
-    
-      })
-    
-      
-    };
 
-    retrieveComment()
+        const updatePost = {
+          //inputs para el post
+          item_id: idDinamic,
+          username: input1.value,
+          comment: input2.value,
+        };
 
-   
-    
-   // postNewComment();
-    insideBtn.addEventListener('click', () => {
-    
-      while (newComment.hasChildNodes()) {
-        newComment.removeChild(newComment.firstChild);
-      }
-      
-      const updatePost = {              //inputs para el post
-        item_id: idDinamic,
-        username: input1.value,
-        comment: input2.value,
-      };
-  
-      const optionsPost = {                       // FETCH POST COMENTARIOS
-        method: 'POST',
-        headers: {'Content-Type': 'application/json'},
-        body: JSON.stringify(updatePost),
-      };
-      
-      const postNewComment = async () => await fetch(idPath, optionsPost);
-      postNewComment();
-      setTimeout(retrieveComment,500);
+        const optionsPost = {
+          // FETCH POST COMENTARIOS
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(updatePost),
+        };
 
+        const postNewComment = async () => await fetch(idPath, optionsPost);
+        postNewComment();
+        setTimeout(retrieveComment, 1000);
+      });
     });
-    
-      
-      
+  });
 
-
-
-
-    })
-
-   })
-  
-}
+  close.addEventListener('click', () => {
+    location.reload();
+  });
+};
 
 export default displayCharacters;
