@@ -1,3 +1,4 @@
+/* eslint-disable */
 import displayLikes from './displayLikes.js';
 import passLike from './passLike.js';
 import retrieveCharacters from './retrieveCharacters.js';
@@ -7,7 +8,6 @@ import commentsCounter from './commentsCounter.js';
 const homepage = document.querySelector('.homepage');
 // const path = 'https://www.breakingbadapi.com/api/characters?limit=12&offset=0';
 const appId = 'wHDqf2FyYMmzmK7MMxf9';
-const idPath = `https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/${appId}/comments/`;
 
 const displayCharacters = async () => {
   const charactersInfo = await retrieveCharacters();
@@ -55,7 +55,7 @@ const displayCharacters = async () => {
     characterCounter(counterChar, charactersInfo.length);
   });
 
-  //Comments Section
+  // Comments Section
   const close = document.querySelector('.close');
   const container = document.querySelector('.general__container');
   const btnComments = document.querySelectorAll('.commentsBtn');
@@ -70,7 +70,6 @@ const displayCharacters = async () => {
   const input2 = document.querySelector('.input__mail');
   const insideBtn = document.createElement('button');
   insideBtn.classList.add('inside__button');
-  const date = new Date();
   const newComment = document.createElement('div');
   newComment.classList.add('newComment');
   const general = document.querySelector('.general__container');
@@ -121,19 +120,14 @@ const displayCharacters = async () => {
             for (let i = 0; i < json.length; i += 1) {
               console.log('papitas');
               console.log(json[i]);
-              //contenedor
+              // contenedor
 
               const comentNEW = document.createElement('p');
-              comentNEW.innerText =
-                json[i].username +
-                ' ' +
-                json[i].comment +
-                ' ' +
-                json[i].creation_date;
+              comentNEW.innerText = `${json[i].username} ${json[i].comment} ${json[i].creation_date}`;
               newComment.appendChild(comentNEW);
               commentsCounter(title, json.length);
             }
-            //console.log(json.length +"********************************************")
+            // console.log(json.length +"********************************************")
           });
       };
 
@@ -146,7 +140,7 @@ const displayCharacters = async () => {
         }
 
         const updatePost = {
-          //inputs para el post
+          // inputs para el post
           item_id: idDinamic,
           username: input1.value,
           comment: input2.value,
@@ -167,12 +161,12 @@ const displayCharacters = async () => {
   });
 
   close.addEventListener('click', () => {
-    location.reload();
+    window.location.reload();
   });
   await displayLikes();
   passLike();
 
-  //section reservations
+  // section reservations
   const closeRes = document.querySelector('.close__but');
   const containerRes = document.querySelector('.main__container');
   const btnReserv = document.querySelectorAll('.reservationsBtn');
@@ -201,7 +195,8 @@ const displayCharacters = async () => {
     btn.addEventListener('click', () => {
       const inputMainRes = document.querySelector('.input__main_reserv');
       const idDinamic = btn.parentElement.id; // id dinamico get
-      const idPath = `https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/wHDqf2FyYMmzmK7MMxf9/reservations/`; // id dinamico post
+      const idPath =
+        'https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/wHDqf2FyYMmzmK7MMxf9/reservations/'; // id dinamico post
       const pathGet = `https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/${appId}/comments/?item_id=${idDinamic}`;
 
       generalRes.style.display = 'block';
@@ -229,8 +224,6 @@ const displayCharacters = async () => {
       inputMainRes.appendChild(insideBtnRes);
     });
   });
-
-
 
   closeRes.addEventListener('click', () => {
     location.reload();
