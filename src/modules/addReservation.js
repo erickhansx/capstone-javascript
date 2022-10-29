@@ -37,7 +37,7 @@ export default class AddReservation {
 
     static getDataToUse = async () => {
       try {
-        const URL = 'https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/8d89N90hd9nfq0mdsf/reservations?item_id=50';
+        const URL = ('https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/8d89N90hd9nfq0mdsf/reservations?item_id=${id}');
         const objfromAPI = await AddReservation.getData({ url: URL });
         return objfromAPI;
       } catch (error) {
