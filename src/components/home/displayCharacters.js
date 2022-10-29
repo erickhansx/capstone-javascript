@@ -153,7 +153,7 @@ const displayCharacters = async () => {
         };
 
         const optionsPost = {
-          // FETCH POST COMENTARIOS
+          // FETCH POST COMENTARIOSss
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify(updatePost),
