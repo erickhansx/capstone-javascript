@@ -1,4 +1,3 @@
-import displayLikes from './displayLikes';
 const appId = 'TpmMqPZSaYcfyNoZ0kVp';
 const idPath = `https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/${appId}/likes/`;
 

@@ -1,12 +1,11 @@
 import './components/global/global.scss';
 import './components/home/home.scss';
-import displayCharacters from './components/home/displayCharacters';
-import displayLikes from './components/home/displayLikes';
-import passLike from './components/home/passLike';
-const appId = 'TpmMqPZSaYcfyNoZ0kVp';
-const idPath = `https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/${appId}/likes/`;
+import displayCharacters from './components/home/displayCharacters.js';
+
 displayCharacters();
 
+// const appId = 'TpmMqPZSaYcfyNoZ0kVp';
+// const idPath = `https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/${appId}/likes/`;
 // fetch(idPath)
 //   .then((data) => data.json())
 //   .then((data) => console.log(data));

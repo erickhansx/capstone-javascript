@@ -1,4 +1,3 @@
-import displayCharacters from './displayCharacters';
 const appId = 'TpmMqPZSaYcfyNoZ0kVp';
 const idPath = `https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/${appId}/likes/`;
 
@@ -12,7 +11,7 @@ const displayLikes = async () => {
     likeDiv.classList.add('likeDiv');
     const icon = document.createElement('a');
     icon.classList.add('likesBtn');
-    icon.innerHTML = `<i class="fa-solid fa-flask"></i>`;
+    icon.innerHTML = '<i class="fa-solid fa-flask"></i>';
     likeDiv.appendChild(icon);
     character.appendChild(likeDiv);
   });
