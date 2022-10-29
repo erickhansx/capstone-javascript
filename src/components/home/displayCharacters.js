@@ -1,4 +1,3 @@
-/* eslint-disable */
 import displayLikes from './displayLikes.js';
 import passLike from './passLike.js';
 import retrieveCharacters from './retrieveCharacters.js';
@@ -80,7 +79,7 @@ const displayCharacters = async () => {
   general.insertBefore(newComment, addComment);
 
   btnComments.forEach((btn) => {
-    btn.addEventListener('click', () => {
+    btn.addEventListener('click', async () => {
       const inputMain = document.querySelector('.input__main');
       const idDinamic = btn.parentElement.id; // id dinamico get
       const idPath = `https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/${appId}/comments/`; // id dinamico post
@@ -88,13 +87,14 @@ const displayCharacters = async () => {
 
       container.style.display = 'block';
 
-      fetch('https://www.breakingbadapi.com/api/characters?limit=12&offset=0') // GET BREAKING BAD DATA
+      await fetch(
+        'https://www.breakingbadapi.com/api/characters?limit=12&offset=0'
+      ) // GET BREAKING BAD DATA
         .then((res) => res.json())
         .then((data) => {
           data.forEach((data) => {
             if (JSON.stringify(data.char_id) === btn.parentElement.id) {
               nameSpace.innerText = data.name;
-              console.log(nameSpace);
               photo.src = data.img;
               contOne.innerText = data.nickname;
               contTwo.innerText = data.status;
@@ -119,8 +119,6 @@ const displayCharacters = async () => {
           .then((response) => response.json())
           .then((json) => {
             for (let i = 0; i < json.length; i += 1) {
-              console.log('papitas');
-              console.log(json[i]);
               // contenedor
 
               const comentNEW = document.createElement('p');
@@ -128,7 +126,6 @@ const displayCharacters = async () => {
               newComment.appendChild(comentNEW);
               commentsCounter(title, json.length);
             }
-            // console.log(json.length +"********************************************")
           });
       };
 
@@ -193,7 +190,7 @@ const displayCharacters = async () => {
   generalRes.insertBefore(newCommentReser, addCommentRes);
 
   btnReserv.forEach((btn) => {
-    btn.addEventListener('click', () => {
+    btn.addEventListener('click', async () => {
       const inputMainRes = document.querySelector('.input__main_reserv');
       const idDinamic = btn.parentElement.id; // id dinamico get
       const idPath =
@@ -202,13 +199,14 @@ const displayCharacters = async () => {
 
       generalRes.style.display = 'block';
 
-      fetch('https://www.breakingbadapi.com/api/characters?limit=12&offset=0') // GET BREAKING BAD DATA
+      await fetch(
+        'https://www.breakingbadapi.com/api/characters?limit=12&offset=0'
+      ) // GET BREAKING BAD DATA
         .then((res) => res.json())
         .then((data) => {
           data.forEach((data) => {
             if (JSON.stringify(data.char_id) === btn.parentElement.id) {
               nameSpaceRes.innerText = data.name;
-              console.log(nameSpace);
               photoRes.src = data.img;
               contOneRes.innerText = data.nickname;
               contTwoRes.innerText = data.status;
@@ -227,7 +225,7 @@ const displayCharacters = async () => {
   });
 
   closeRes.addEventListener('click', () => {
-    location.reload();
+    document.location.reload();
   });
 };
 
