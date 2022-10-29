@@ -1,9 +1,8 @@
+import displayLikes from './displayLikes.js';
+import passLike from './passLike.js';
 import retrieveCharacters from './retrieveCharacters.js';
 
 const homepage = document.querySelector('.homepage');
-// const path = 'https://www.breakingbadapi.com/api/characters?limit=12&offset=0';
-// const appId = 'wHDqf2FyYMmzmK7MMxf9';
-// const idPath = `https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/${appId}/likes/`;
 const displayCharacters = async () => {
   const charactersInfo = await retrieveCharacters();
 
@@ -47,9 +46,9 @@ const displayCharacters = async () => {
       charactersOccupation.appendChild(occupationList);
     });
   });
-  const btnComments = document.querySelector('.commentsBtn');
 
-  btnComments.addEventListener('click', () => console.log('hola'));
+  await displayLikes();
+  passLike();
 };
 
 export default displayCharacters;
