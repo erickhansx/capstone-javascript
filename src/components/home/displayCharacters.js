@@ -1,6 +1,8 @@
 import displayLikes from './displayLikes.js';
 import passLike from './passLike.js';
 import retrieveCharacters from './retrieveCharacters.js';
+import characterCounter from './characters-counts.js';
+
 
 const homepage = document.querySelector('.homepage');
 // const path = 'https://www.breakingbadapi.com/api/characters?limit=12&offset=0';
@@ -49,6 +51,9 @@ const displayCharacters = async () => {
       occupationList.innerText = `Occupation: ${occupation}`;
       charactersOccupation.appendChild(occupationList);
     });
+    const counterChar = document.getElementById('CharacterCounter');
+    characterCounter(counterChar, charactersInfo.length);
+
   });
 
   //Comments Section
@@ -162,7 +167,7 @@ const displayCharacters = async () => {
 
 
   //section reservations
-  const closeRes = document.querySelector('.close');
+  const closeRes = document.querySelector('.close__but');
   const containerRes = document.querySelector('.main__container');
   const btnReserv = document.querySelectorAll('.reservationsBtn');
   const nameSpaceRes = document.querySelector('.name__space__reserv ');
@@ -220,31 +225,35 @@ const displayCharacters = async () => {
     })
   })
 
-   // GET COMMENTS
-   const pathGet = `https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/${appId}/comments/?item_id=${idDinamic}`;
-   const idDinamic = btn.parentElement.id;
-   const retrieveComment = async () => {
-    await fetch(pathGet)
-      .then((response) => response.json())
-      .then((json) => {
-        for (let i = 0; i < json.length; i += 1) {
-          console.log('papitas');
-          console.log(json[i]);
-          //contenedor
-          const comentNEWRes = document.createElement('p');
-          comentNEWRes.innerText =
-            json[i].username + ' ' + json[i].comment + ' ' + json[i].creation_date;
-          newCommentReser.appendChild(comentNEWRes);
-        }
-        //console.log(json.length +"********************************************")
-      });
-  };
+  //  // GET COMMENTS
+  //  const pathGet = `https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/${appId}/comments/?item_id=${idDinamic}`;
+  //  const idDinamic = btn.parentElement.id;
+  //  const retrieveComment = async () => {
+  //   await fetch(pathGet)
+  //     .then((response) => response.json())
+  //     .then((json) => {
+  //       for (let i = 0; i < json.length; i += 1) {
+  //         console.log('papitas');
+  //         console.log(json[i]);
+  //         //contenedor
+  //         const comentNEWRes = document.createElement('p');
+  //         comentNEWRes.innerText =
+  //           json[i].username + ' ' + json[i].comment + ' ' + json[i].creation_date;
+  //         newCommentReser.appendChild(comentNEWRes);
+  //       }
+  //       //console.log(json.length +"********************************************")
+  //     });
+      
+  // };
 
-  retrieveComment();
+  // retrieveComment();
 
   closeRes.addEventListener('click', () => {
     location.reload();
   });
+ 
+ 
 };
+
 
 export default displayCharacters;
