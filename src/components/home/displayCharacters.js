@@ -1,3 +1,5 @@
+import displayLikes from './displayLikes.js';
+import passLike from './passLike.js';
 import retrieveCharacters from './retrieveCharacters.js';
 
 const homepage = document.querySelector('.homepage');
@@ -155,6 +157,8 @@ const displayCharacters = async () => {
   close.addEventListener('click', () => {
     location.reload();
   });
+  await displayLikes();
+  passLike();
 };
 
 export default displayCharacters;
