@@ -88,7 +88,7 @@ const displayCharacters = async () => {
       container.style.display = 'block';
 
       await fetch(
-        'https://www.breakingbadapi.com/api/characters?limit=12&offset=0'
+        'https://www.breakingbadapi.com/api/characters?limit=12&offset=0',
       ) // GET BREAKING BAD DATA
         .then((res) => res.json())
         .then((data) => {
@@ -151,7 +151,9 @@ const displayCharacters = async () => {
           body: JSON.stringify(updatePost),
         };
 
-        const postNewComment = async () => await fetch(idPath, optionsPost);
+        const postNewComment = async () => {
+          await fetch(idPath, optionsPost);
+        };
         postNewComment();
         setTimeout(retrieveComment, 1000);
       });
@@ -166,7 +168,6 @@ const displayCharacters = async () => {
 
   // section reservations
   const closeRes = document.querySelector('.close__but');
-  const containerRes = document.querySelector('.main__container');
   const btnReserv = document.querySelectorAll('.reservationsBtn');
   const nameSpaceRes = document.querySelector('.name__space__reserv ');
   const photoRes = document.querySelector('.photo__reserv');
@@ -175,9 +176,6 @@ const displayCharacters = async () => {
   const contThreeRes = document.querySelector('.three_three');
   const contFourRes = document.querySelector('.four_four');
   const addCommentRes = document.querySelector('.name__add_reserv');
-  const input1Res = document.querySelector('.text__main');
-  const input2Res = document.querySelector('.main__mail');
-  const input3Res = document.querySelector('.end__name');
   const insideBtnRes = document.createElement('button');
   insideBtnRes.classList.add('inside__button_reserv');
 
@@ -191,16 +189,12 @@ const displayCharacters = async () => {
 
   btnReserv.forEach((btn) => {
     btn.addEventListener('click', async () => {
-      const inputMainRes = document.querySelector('.input__main_reserv');
-      const idDinamic = btn.parentElement.id; // id dinamico get
-      const idPath =
-        'https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/wHDqf2FyYMmzmK7MMxf9/reservations/'; // id dinamico post
-      const pathGet = `https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/${appId}/comments/?item_id=${idDinamic}`;
+      const inputMainRes = document.querySelector('.input__main_reserv'); // id dinamico get
 
       generalRes.style.display = 'block';
 
       await fetch(
-        'https://www.breakingbadapi.com/api/characters?limit=12&offset=0'
+        'https://www.breakingbadapi.com/api/characters?limit=12&offset=0',
       ) // GET BREAKING BAD DATA
         .then((res) => res.json())
         .then((data) => {
